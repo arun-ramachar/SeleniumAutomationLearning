@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -18,7 +20,6 @@ public class ImplicitWait {
 //	 interface we cant create objects for interface
 	public static WebDriver driver;
 	
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws InterruptedException{
 		// TODO Auto-generated method stub
 		
@@ -35,6 +36,7 @@ public class ImplicitWait {
 			
 			driver.get("https://www.ebay.com.au");
 			driver.manage().window().maximize();
+			
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			//thread .sleep is a hard code not recomendded
 			//bcoz if u say 2000 milliseconds it will wait 2000 sec../
@@ -46,9 +48,14 @@ public class ImplicitWait {
 			
 			action.moveToElement(element).perform();
 			
+           // WebElement wait= new WebDriverWait(driver, timeOutInSeconds:10);
+            
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(
+//      By.xpath("//*[@id=\"mainContent\"]/div[1]/ul/li[3]/div[2]/div[1]/nav[1]/ul/li[1]/a"))).click();
 			driver.findElement(By.xpath("//*[@id=\"mainContent\"]/div[1]/ul/li[3]/div[2]/div[1]/nav[1]/ul/li[1]/a")).click();
 			
 			driver.close();
 	}
 
+	
 }
