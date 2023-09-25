@@ -10,9 +10,11 @@ public class Navigation {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		WebDriverManager.chromedriver().setup();
+		//WebDriverManager.chromedriver().setup();
 		
-		WebDriver driver= new ChromeDriver();
+		 WebDriverManager.chromedriver().setup();
+		 
+		 WebDriver driver= new ChromeDriver();
 		
 		driver.get("https://www.snapdeal.com");
 		

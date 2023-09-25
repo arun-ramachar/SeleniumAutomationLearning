@@ -76,15 +76,18 @@ public class HandleLinks {
         		continue;
         	}
         	
+        	
+        	//Actually url is in string format so we have to convert string url into 
+        //proper url format by importing 
           URL link = new URL(url);
         	try {
 				HttpURLConnection httpconn = (HttpURLConnection) link.openConnection();
 				httpconn.connect();
 				if(httpconn.getResponseCode()>=400) {
-					System.out.println("brokenLink");
+					System.out.println(httpconn.getResponseCode()+ url + "is" + "Broken LInk");
 					brokenLink++;
 				}else {
-					System.out.println("validLink");
+					System.out.println(httpconn.getResponseCode()+ url + "is" + "valid LInk");
 				}
 			} 
         	
@@ -95,6 +98,9 @@ public class HandleLinks {
         	
         }
         
+        
+        System.out.println(brokenLink);
+        driver.quit();
 	}
 
 }

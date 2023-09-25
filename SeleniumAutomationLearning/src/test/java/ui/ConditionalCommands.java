@@ -20,28 +20,30 @@ public class ConditionalCommands {
 		driver.get("https://demo.nopcommerce.com/register");
 		
 		//isDisplayed  //isEnabled
-		WebElement searchStore = driver.findElement(By.xpath("//*[@id=\"small-searchterms\"]"));
-		
+		//WebElement searchStore = driver.findElement(By.xpath("//input[@id='small-searchterms']"));
+		WebElement searchStore =driver.findElement(By.xpath("//input[@id='small-searchterms']"));
 		
 		System.out.println("Display status:" +searchStore.isDisplayed());
 		System.out.println("Display status:" +searchStore.isEnabled());
 		
 		
-		WebElement male = driver.findElement(By.xpath("//*[@id='gender-male']"));
+		//WebElement male = driver.findElement(By.xpath("//*[@id='gender-male']"));
+		//input[@id='gender-male']
 		
+		WebElement male = driver.findElement(By.xpath("//input[@id='gender-male']"));
 		//*[@id="gender-female"]
 		WebElement female = driver.findElement(By.xpath("//*[@id='gender-female']"));
 		
-		System.out.println(male.isSelected());
-		System.out.println(female.isSelected());
+		System.out.println(male.isSelected());//false
+		System.out.println(female.isSelected());// false
 		
 		male.click();
-		System.out.println(male.isSelected());
-		System.out.println(female.isSelected());
+		System.out.println(male.isSelected());//true
+		System.out.println(female.isSelected());//false
 
 		female.click();
-		System.out.println(male.isSelected());
-		System.out.println(female.isSelected());
+		System.out.println(male.isSelected());//false
+		System.out.println(female.isSelected());//true
 
 	}
 
